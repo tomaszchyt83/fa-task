@@ -57,7 +57,7 @@ final class RegisterController extends AbstractController
             );
             $user->setPassword($hashedPassword);
 
-            $user->setRoles([User::ROLE_USER]);
+            $user->setRoles([User::ROLE_ADMIN]);
 
             $entityManager->persist($user);
 
