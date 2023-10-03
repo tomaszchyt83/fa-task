@@ -288,6 +288,27 @@
                 <source>paginator.next</source>
                 <target>Następna</target>
             </trans-unit>
-        </body>
+
+            <trans-unit id="action.register_user">
+                <source>action.register_user</source>
+                <target>Zarejestruj się</target>
+            </trans-unit>
+            <trans-unit id="title.register_user">
+                <source>title.register_user</source>
+                <target>Zarejestruj się</target>
+            </trans-unit>
+            <trans-unit id="info.register_user">
+                <source>info.register_user</source>
+                <target>Rejestracja w naszym serwisie. Hasło musi zawierać 10-20 znaków.</target>
+            </trans-unit>
+            <trans-unit id="label.fullname">
+                <source>label.fullname</source>
+                <target>Imię i nazwisko</target>
+            </trans-unit>
+            <trans-unit id="user.registered">
+                <source>user.registered</source>
+                <target>Zarejestrowano pomyślnie.</target>
+            </trans-unit>
+         </body>
     </file>
 </xliff>

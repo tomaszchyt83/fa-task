@@ -442,6 +442,23 @@
                 <source>paginator.current</source>
                 <target>(current)</target>
             </trans-unit>
+
+            <trans-unit id="action.register_user">
+                <source>action.register_user</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="title.register_user">
+                <source>title.register_user</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="info.register_user">
+                <source>info.register_user</source>
+                <target>Register on our website. Password must have 10-20 characters.</target>
+            </trans-unit>
+            <trans-unit id="user.registered">
+                 <source>user.registered</source>
+                 <target>Registered successfully.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
