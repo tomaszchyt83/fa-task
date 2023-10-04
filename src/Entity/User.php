@@ -38,6 +38,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     final public const ROLE_USER = 'ROLE_USER';
     final public const ROLE_ADMIN = 'ROLE_ADMIN';
 
+    final public const PRICING_PLAN_DEFAULT = 'default';
+    final public const PRICING_PLAN_PREMIUM = 'premium';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER)]
@@ -64,6 +67,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column(type: Types::JSON)]
     private array $roles = [];
+
+    /**
+     * @var string
+     */
+    #[ORM\Column(type: Types::STRING, nullable: false, columnDefinition: "VARCHAR(10) NOT NULL DEFAULT 'default'")]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 10, maxMessage: 'Pricing plan name cannot be longer than 10 characters',)]
+    private string $pricingPlan = self::PRICING_PLAN_DEFAULT;
 
     public function getId(): ?int
     {
@@ -150,6 +161,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // See https://en.wikipedia.org/wiki/Bcrypt
 
         return null;
+    }
+
+    public function getPricingPlan(): string
+    {
+        return $this->pricingPlan;
+    }
+
+    public function setPricingPlan(string $pricingPlan): void
+    {
+        $this->pricingPlan = $pricingPlan;
     }
 
     /**
