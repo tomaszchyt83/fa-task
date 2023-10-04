@@ -15,6 +15,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -38,7 +39,8 @@ final class UserRegisterType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'label.email',
             ])
-            ->add('password', PasswordType::class, [
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
                 'label' => 'label.password',
                 'constraints' => [
                     new NotBlank(),
@@ -46,6 +48,12 @@ final class UserRegisterType extends AbstractType
                         min: 10,
                         max: 20,
                     ),
+                ],
+                'first_options' => [
+                    'label' => 'label.password',
+                ],
+                'second_options' => [
+                    'label' => 'label.password_confirm',
                 ],
             ]);
     }

@@ -309,6 +309,10 @@
                 <source>user.registered</source>
                 <target>Zarejestrowano pomyślnie.</target>
             </trans-unit>
+            <trans-unit id="label.password_confirm">
+                <source>label.password_confirm</source>
+                <target>Powtórzenie hasła</target>
+            </trans-unit>
          </body>
     </file>
 </xliff>
