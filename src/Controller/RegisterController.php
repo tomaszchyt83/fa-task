@@ -24,7 +24,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 /**
  * Controller used to register user.
  */
-#[Route('/')]
 final class RegisterController extends AbstractController
 {
     #[Route('/register', name: 'register', defaults: ['_format' => 'html'], methods: ['GET', 'POST'])]
