@@ -28,11 +28,11 @@ final class RegisterController extends AbstractController
 {
     #[Route('/register', name: 'register', defaults: ['_format' => 'html'], methods: ['GET', 'POST'])]
     public function register(
-        Request $request,
-        EntityManagerInterface $entityManager,
-        ValidatorInterface $validator,
+        Request                     $request,
+        EntityManagerInterface      $entityManager,
+        ValidatorInterface          $validator,
         UserPasswordHasherInterface $passwordHasher,
-        string $_format): Response
+        string                      $_format): Response
     {
         $user = new User();
 
@@ -45,7 +45,7 @@ final class RegisterController extends AbstractController
             $errors = $validator->validate($user);
 
             if (count($errors) > 0) {
-                $errorsString = (string) $errors;
+                $errorsString = (string)$errors;
 
                 return new Response($errorsString);
             }
@@ -66,7 +66,7 @@ final class RegisterController extends AbstractController
 
             return $this->redirectToRoute('admin_post_index');
         }
-        return $this->render('user/register.'.$_format.'.twig', [
+        return $this->render('user/register.' . $_format . '.twig', [
             'form' => $form,
         ]);
     }

@@ -7,12 +7,12 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Event\CommentCreatedEvent;
 use App\EventSubscriber\CommentNotificationSubscriber;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Bundle\FrameworkBundle\Test\MailerAssertionsTrait;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class CommentNotificationSubscriberTest extends KernelTestCase
 {
@@ -27,7 +27,8 @@ class CommentNotificationSubscriberTest extends KernelTestCase
         $this->sender = 'sender@test.pl';
     }
 
-    public function testGetSubscribedEvents(): void {
+    public function testGetSubscribedEvents(): void
+    {
         $this->assertEquals([
             CommentCreatedEvent::class => 'onCommentCreated'
         ], CommentNotificationSubscriber::getSubscribedEvents());
@@ -36,7 +37,8 @@ class CommentNotificationSubscriberTest extends KernelTestCase
     /**
      * @throws \Exception
      */
-    public function testOnCommentCreated(): void {
+    public function testOnCommentCreated(): void
+    {
         $author = new User();
         $author->setEmail('author@test.pl');
         $author->setFullName('Unit test author');
